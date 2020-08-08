@@ -1,0 +1,25 @@
+<h1>Sign In</h1>
+<%= form_with(model: @user, local:true) do |form| %>
+<% if @user.errors.any? %>
+<div id="error_explanation">
+  <h2><%= @user.errors.count %>件のエラーがあります</h2>
+  <ul>
+  <% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="sign_field">
+  <%= form.label :username %>
+  <%= form.text_field :name %><br>
+  <%= form.label :email %>
+  <%= form.email_field :email %><br>
+  <%= form.label :password %>
+  <%= form.password_field :password %><br>
+  <%= form.label :password_confirmation %>
+  <%= form.password_field :password_confirmation %><br>
+</div>
+  <%= form.submit %>
+<% end %>
