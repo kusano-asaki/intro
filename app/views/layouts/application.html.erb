@@ -14,9 +14,20 @@
       <ul>
         <li><%= link_to 'Blog Index', blogs_path %></li>
         <li><%= link_to 'New Blog', new_blog_path %></li>
+        <% if logged_in? %>
+          <li><%= link_to 'Profile', user_path(current_user.id) %></li>
+          <li><%= link_to 'Log out', session_path(current_user.id), method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'Sign In', new_user_path %></li>
+          <li><%= link_to 'Log In', new_session_path %></li>
+        <% end %>
       </ul>
+
     </header>
     <hr>
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class:"#{key}") %>
+      <% end %>
     <%= yield %>
   </body>
 </html>
