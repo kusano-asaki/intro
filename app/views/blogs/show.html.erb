@@ -3,9 +3,13 @@
 <h2><%= @blog.user.name %>さんのBlog詳細内容</h2>
 <p>
   <strong>Title:</strong>
-  <%= @blog.title%>
+  <%= @blog.title %>
 </p>
 <p>
   <strong>Content:</strong>
-  <%= @blog.content%>
+  <%= @blog.content %>
+</p>
+<p>
+  <strong>Image:</strong>
+  <%= image_tag(@blog.image.url) %>
 </p>
